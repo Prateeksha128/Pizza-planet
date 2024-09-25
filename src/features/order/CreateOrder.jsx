@@ -35,7 +35,7 @@ function CreateOrder() {
   const cart = useSelector(getCart);
   const totalCartPrice = useSelector(getTotalCartPrice);
   const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
-  const totalPrice = totalCartPrice + priorityPrice;
+  const totalPrice = Math.ceil(totalCartPrice + priorityPrice);
 
   if (!cart.length) return <EmptyCart />;
 
@@ -131,7 +131,7 @@ function CreateOrder() {
           <Button disabled={isSubmitting || isLoadingAddress} type="primary">
             {isSubmitting
               ? "Placing order...."
-              : `Order now from ${formatCurrency(totalPrice)}`}
+              : `Order now for ${formatCurrency(totalPrice)}`}
           </Button>
         </div>
       </Form>

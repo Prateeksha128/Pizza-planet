@@ -89,7 +89,7 @@ function Order() {
           </p>
         )}
         <p className="font-bold">
-          To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
+          To pay on delivery: {formatCurrency(Math.ceil(orderPrice + priorityPrice))}
         </p>
       </div>
       <div className="flex gap-3">
